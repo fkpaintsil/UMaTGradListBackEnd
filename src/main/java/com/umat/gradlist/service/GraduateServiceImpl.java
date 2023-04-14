@@ -3,29 +3,24 @@ package com.umat.gradlist.service;
 import com.umat.gradlist.dto.SearchDTO;
 import com.umat.gradlist.model.Graduate;
 import com.umat.gradlist.repository.GraduateRepository;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
-import org.springframework.data.domain.Pageable;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class GraduateServiceImpl implements GraduateService {
     private final GraduateRepository graduateRepository;
-
-    @Autowired
-    public GraduateServiceImpl(final GraduateRepository graduateRepository) {
-        this.graduateRepository = graduateRepository;
-    }
 
     @Override
     public List<Graduate> saveFileContent(MultipartFile file) {

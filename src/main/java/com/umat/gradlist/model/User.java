@@ -23,4 +23,8 @@ public class User {
     private UUID id;
     private String email;
     private String password;
+
+    private String username;
+
+    private String roles;
 }
